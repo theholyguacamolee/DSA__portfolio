@@ -24,7 +24,7 @@ const Header = () => {
               to="/projects"
               className="text-gray-300 hover:text-white transition-colors"
             >
-              Projects
+              Works
             </Link>
             <Link
               to="/skills"

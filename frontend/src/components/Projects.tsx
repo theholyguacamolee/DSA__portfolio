@@ -3,6 +3,7 @@ import { Github, X } from "lucide-react";
 import LinkedListDemo from "./demos/LinkedListDemo";
 import CircleDemo from "./demos/CircleDemo";
 import TriangleDemo from "./demos/TriangleDemo";
+import UppercaseDemo from "./demos/UppercaseDemo";
 
 type Project = {
   title: string;
@@ -19,7 +20,7 @@ const Projects = () => {
     {
       title: "Area of a Circle",
       description: "A small demo that calculates area of a circle.",
-      techStack: ["JS"],
+      techStack: ["Python", "Flask", "JS"],
       githubUrl: "",
       demoInModal: true,
       demoComponent: CircleDemo,
@@ -27,23 +28,23 @@ const Projects = () => {
     {
       title: "Area of Triangle",
       description: "Interactive triangle area demo.",
-      techStack: ["JS"],
+      techStack: ["Python", "Flask", "JS"],
       githubUrl: "",
       demoInModal: true,
       demoComponent: TriangleDemo,
     },
     {
-      title: "Uppercase",
+      title: "Convert Text to Uppercase",
       description: "String utility demo.",
-      techStack: ["JS"],
+      techStack: ["Python", "Flask", "JS"],
       githubUrl: "",
-      liveUrl: "",
-      demoInModal: false,
+      demoInModal: true,
+      demoComponent: UppercaseDemo,
     },
     {
       title: "Linked List",
       description: "Visual linked list operations demo.",
-      techStack: ["JS"],
+      techStack: ["Python", "Flask", "JS"],
       githubUrl: "",
       demoInModal: true,
       demoComponent: LinkedListDemo,
@@ -51,7 +52,7 @@ const Projects = () => {
     {
       title: "Infix to Postfix",
       description: "Algorithm demo for expression conversion.",
-      techStack: ["JS"],
+      techStack: ["Python", "Flask", "JS"],
       githubUrl: "",
       liveUrl: "",
       demoInModal: false,
@@ -123,15 +124,11 @@ const Projects = () => {
 
                 <button
                   onClick={() => {
-                    // If project is configured to show demo in modal, open modal.
-                    // Otherwise, if a liveUrl exists, open it in a new tab.
                     if (project.demoInModal && project.liveUrl) {
                       openDemo(project);
                     } else if (project.liveUrl) {
                       window.open(project.liveUrl, "_blank", "noopener,noreferrer");
                     } else {
-                      // No demo available; keep button disabled-style or show a small tooltip in future.
-                      // We'll still open modal to show the placeholder message for consistency.
                       openDemo(project);
                     }
                   }}
