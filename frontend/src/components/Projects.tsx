@@ -4,6 +4,7 @@ import LinkedListDemo from "./demos/LinkedListDemo";
 import CircleDemo from "./demos/CircleDemo";
 import TriangleDemo from "./demos/TriangleDemo";
 import UppercaseDemo from "./demos/UppercaseDemo";
+import InfixToPostfixDemo from "./demos/InfixToPostfixDemo";
 
 type Project = {
   title: string;
@@ -50,12 +51,12 @@ const Projects = () => {
       demoComponent: LinkedListDemo,
     },
     {
-      title: "Infix to Postfix",
-      description: "Algorithm demo for expression conversion.",
-      techStack: ["Python", "Flask", "JS"],
+      title: "Infix to Postfix Converter",
+      description: "Convert infix expressions to postfix using Shunting Yard Algorithm.",
+      techStack: ["Python", "Flask", "React", "TypeScript"],
       githubUrl: "",
-      liveUrl: "",
-      demoInModal: false,
+      demoInModal: true,
+      demoComponent: InfixToPostfixDemo,
     },
   ];
 
@@ -149,28 +150,28 @@ const Projects = () => {
               if (e.target === e.currentTarget) closeDemo();
             }}
           >
-            <div className="relative w-full max-w-4xl bg-[#0b0b0b] rounded-lg shadow-lg overflow-hidden">
+            <div className="relative w-full max-w-4xl bg-[#0b0b0b] rounded-lg shadow-lg overflow-hidden max-h-[90vh] flex flex-col">
               <button
                 onClick={closeDemo}
-                className="absolute top-3 right-3 p-2 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-200"
+                className="absolute top-3 right-3 z-10 p-2 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-200"
                 aria-label="Close demo"
               >
                 <X size={16} />
               </button>
 
-              <div className="p-4 border-b border-gray-800 flex items-center justify-between">
+              <div className="p-4 border-b border-gray-800 flex items-center justify-between flex-shrink-0">
                 <h3 className="text-lg font-semibold">{selected.title}</h3>
                 <div className="text-sm text-gray-400">{selected.description}</div>
               </div>
 
-              <div className="w-full h-[70vh] bg-black">
+              <div className="w-full flex-1 bg-black overflow-y-auto">
                 {selected.demoComponent ? (
                   <selected.demoComponent />
                 ) : selected.liveUrl ? (
                   <iframe
                     src={selected.liveUrl}
                     title={selected.title}
-                    className="w-full h-full"
+                    className="w-full h-full min-h-[70vh]"
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full text-gray-300 p-6">
@@ -182,7 +183,7 @@ const Projects = () => {
                 )}
               </div>
 
-              <div className="p-4 flex justify-end gap-3 border-t border-gray-800">
+              <div className="p-4 flex justify-end gap-3 border-t border-gray-800 flex-shrink-0">
                 {selected.liveUrl && (
                   <a
                     href={selected.liveUrl}

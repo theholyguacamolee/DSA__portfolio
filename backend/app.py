@@ -3,6 +3,7 @@ from flask_cors import CORS
 from dsa.linked_list import LinkedList
 from dsa.geometry import calculate_circle_area, calculate_triangle_area
 from dsa.string_ops import to_uppercase
+from dsa.infix_to_postfix import infix_to_postfix, validate_infix
 
 app = Flask(__name__)
 CORS(app)
@@ -42,6 +43,22 @@ def uppercase():
     text = data.get('text', '')
     result = to_uppercase(text)
     return jsonify({'result': result})
+
+# Infix to Postfix
+@app.route('/api/infix-to-postfix', methods=['POST'])
+def convert_infix():
+    data = request.json
+    infix = data.get('infix', '')
+    
+    is_valid, error_msg = validate_infix(infix)
+    if not is_valid:
+        return jsonify({'error': error_msg}), 400
+    
+    try:
+        postfix = infix_to_postfix(infix)
+        return jsonify({'postfix': postfix, 'infix': infix})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 # Linked List - Insert at Beginning
 @app.route('/api/linkedlist/insert-beginning', methods=['POST'])
