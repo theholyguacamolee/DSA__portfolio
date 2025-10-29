@@ -73,9 +73,4 @@ Frontend will run at `http://localhost:5173`
 - Tailwind CSS
 - Vite
 
-<img width="1920" height="838" alt="image" src="https://github.com/user-attachments/assets/f421dde2-bf94-4c7a-bdbe-49940d161380" />
-<img width="1920" height="1537" alt="image" src="https://github.com/user-attachments/assets/5a84c3af-1b89-44d8-80e3-cfb7242d653a" />
-<img width="1920" height="1539" alt="image" src="https://github.com/user-attachments/assets/f278b606-da3e-48e4-b4ae-e025d1628cc9" />
-
-
 Built to demonstrate DSA concepts with real Python implementations! 🐍
