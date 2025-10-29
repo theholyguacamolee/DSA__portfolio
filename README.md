@@ -60,65 +60,6 @@ npm run dev
 
 Frontend will run at `http://localhost:5173`
 
-## API Endpoints
-
-### Geometry
-- `POST /api/circle/area` - Calculate circle area
-  ```json
-  { "radius": 5 }
-  ```
-
-- `POST /api/triangle/area` - Calculate triangle area
-  ```json
-  { "base": 10, "height": 5 }
-  ```
-
-### String Operations
-- `POST /api/uppercase` - Convert text to uppercase
-  ```json
-  { "text": "hello world" }
-  ```
-
-### Linked List
-- `POST /api/linkedlist/insert-beginning` - Insert at head
-- `POST /api/linkedlist/insert-end` - Insert at tail
-- `POST /api/linkedlist/remove-beginning` - Remove from head
-- `POST /api/linkedlist/remove-end` - Remove from tail
-- `POST /api/linkedlist/search` - Search for value
-- `POST /api/linkedlist/clear` - Clear all nodes
-
-All linked list endpoints require:
-```json
-{
-  "session_id": "unique_session_id",
-  "value": "data" // for insert/search operations
-}
-```
-
-## DSA Implementations (Python)
-
-### Linked List (`dsa/linked_list.py`)
-- Node-based singly linked list
-- Head and tail pointers
-- Insert at beginning/end
-- Remove at beginning/end
-- Search by value
-- O(1) head/tail operations
-
-### Geometry (`dsa/geometry.py`)
-- Circle area: π × r²
-- Triangle area: ½ × base × height
-
-### String Operations (`dsa/string_ops.py`)
-- Text to uppercase conversion
-
-## Development Notes
-
-- Flask runs on port 5000
-- React dev server runs on port 5173
-- CORS is enabled for local development
-- Session-based linked list storage (in-memory)
-
 ## Technologies
 
 **Backend:**
